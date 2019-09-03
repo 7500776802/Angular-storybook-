@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+$theme-colors: (
+"primary": #b993d6,
+"danger": #ff1307,
+"success":green,
+"secondary":#BFE6BA,
+"default" :#948E99
+);
+
+.btn-group-toggle {
+    > .btn,
+    > .btn-group > .btn {
+      margin-bottom: 0; // Override default `<label>` value
+  
+      input[type="radio"],
+      input[type="checkbox"] {
+        position: absolute;
+        clip: rect(0, 0, 0, 0);
+        pointer-events: none;
+      }
+    }
+  }
+
+// .btn-group
+// .btn-group-lg > .btn { @extend .btn-sm; }
+// .btn-group-sm > .btn { @extend .btn-lg; }
+
+
+@function theme-color-level($color-name: "primary", $level: 0) {
+    $color: theme-color($color-name);
+    $color-base: if($level > 0, #000, #fff);
+    $level: abs($level);
+  
+    @return mix($color-base, $color, $level * $theme-color-interval);
+  }
+
+
+@import "node_modules/bootstrap/scss/bootstrap";
+// @import "node_modules/bootstrap/scss/functions";
+// @import "node_modules/bootstrap/scss/variables";
+// @import "node_modules/bootstrap/scss/mixins";
+
+// Optional
+// @import "node_modules/bootstrap/scss/reboot";
+// @import "node_modules/bootstrap/scss/type";
+// @import "node_modules/bootstrap/scss/images";
+// @import "node_modules/bootstrap/scss/code";
+// @import "node_modules/bootstrap/scss/grid";
